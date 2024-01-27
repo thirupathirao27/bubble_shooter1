@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./index.js" defer></script>
+    <style>
+      body{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+      }
+      
+      #top_score_container{
+        position:fixed;
+        top:0;
+        left:0;
+        margin-left:4vw;
+        margin-top:4vh;
+        color:white;
+      }
+      .container{
+        width:600px;
+        height:300px;
+        position:absolute;
+        left:50%;
+        top:50%;
+        transform:translate(-50%,-50%);
+        display:flex;
+        justify-content:space-evenly;
+        align-items:center;
+        display:none;
+       /* transform-style:preserve-3d; */
+      }
+    ul{
+      width:150px;
+      height:150px;
+      
+      position: relative;
+      list-style:none;
+      transform-style:preserve-3d;
+      animation:rotate 1s infinite;
+      transform:rotateX(-20deg) rotateY(20deg);
+      transition:1s;
+
+    }
+    /* @keyframes rotate{
+      to{
+        transform:rotateX(-20deg) rotateY(360deg);
+      }
+    } */
+     li{
+      position: absolute;
+      width:100%;
+      height:100%;
+      background-color:black;
+      transform:rotateY(calc(90deg *  var(--i))) translateZ(95px);
+      text-align:center;
+      color:#999;
+      font-size:22px;
+      font-weight:bold;
+    font-style:italic;
+    transition:1s;
+      /* opacity:0.7; */
+      
+      &:nth-child(5){
+       
+      height:130%;
+           transform:rotateX(90deg) translateZ(-49px);
+           box-shadow:-5px 250px 100px 10px black;
+        
+
+      }
+
+      &:nth-child(6){
+        height:130%;
+        transform:rotateX(90deg) translateZ(95px);
+         
+      }
+    }
+  .button_container>li button{
+    width:100%;
+    height:100%;
+    background:transparent;
+    color:#999;
+    font-size:30px;
+    font-weight:bold;
+    font-style:italic;
+    border:0px;
+    outline:0;
+  }
+  p{
+    margin-bottom:10px;
+  }
+  ul:hover li{
+    color:white;
+  
+  }
+  ul:hover{
+    transform:scale(1.2)
+  }
+  ul:hover button{
+    color:white;
+  }
+    </style>
+</head>
+<body>
+    <div id="top_score_container"><span>SCORE&nbsp;:</span><span id="score">&nbsp;0</span></div>
+    <div class="container" id="container">
+      <ul>
+        <li style="--i:0;"><h1 class="bigScore">0</h1><p>points</p></li>
+        <li style="--i:1;"><h1 class="bigScore">0</h1><p>points</p></li>
+        <li style="--i:2;"><h1 class="bigScore">0</h1><p>points</p></li>
+        <li style="--i:3;"><h1 class="bigScore">0</h1><p>points</p></li>
+        <li style="--i:4;"><h1 class="bigScore">0</h1><p>points</p></li>
+        <li style="--i:5;"><h1 class="bigScore">0</h1><p>points</p></li>
+      </ul>
+      <ul class="button_container">
+        <li style="--i:0;"><button id="start_Button">start game</button></li>
+        <li style="--i:1;"><button>start game</button></li>
+        <li style="--i:2;"><button>start game</button></li>
+        <li style="--i:3;"><button>start game</button></li>
+        <li style="--i:4;"><button>start game</button></li>
+        <li style="--i:5;"><button>start game</button></li>
+      </ul>
+    </div>
+    <canvas></canvas>
+</body>
+</html>
